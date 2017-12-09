@@ -2,7 +2,7 @@ package mypackage;
 import java.io.*;
 /**
  * Created by lmy on 17-12-9.
- * 反转十进制整数,溢出则返回０
+ * 反转十进制整数,溢出返回０
  */
 class Solution {
     public int reverse(int x) {
