@@ -8,35 +8,31 @@ import java.util.*;
 import java.io.*;
 
 class valid {
+
     public boolean isValid(String s) {
+        //HashMap的结构（key,value）,keySet()函数为获取所有的键key,返回一个数组
+        HashMap<Character, Character> map = new HashMap<Character, Character>();
+        map.put('(', ')');
+        map.put('[', ']');
+        map.put('{', '}');
+
         Stack<Character> stack = new Stack<Character>();
 
-        List<Character> left = new ArrayList<Character>();
-        left.add('(');
-        left.add('[');
-        left.add('{');
-        List<Character> right = new ArrayList<Character>();
-        right.add(')');
-        right.add(']');
-        right.add('}');
-
-        stack.push(s.charAt(0));
-
         for (int i = 0; i < s.length(); i++) {
-
-            System.out.println("查看stack的栈顶元素为 : " + stack.peek());
-            if (left.contains(s.charAt(i))) {
-                stack.push(s.charAt(i));
-            } else if (right.contains(s.charAt(i))) {
-                stack.pop();
-            } else {
-
+            char c = s.charAt(i);
+            if (map.keySet().contains(c)) {
+                stack.push(c);
+            } else if (map.values().contains(c)) {
+                if (!stack.empty() && map.get(stack.peek()) == c) {
+                    stack.pop();
+                } else {
+                    return false;
+                }
             }
         }
-        if (stack.empty()) {
-            return true;
-        } else
-            return false;
+
+        return stack.empty();
+
     }
 }
 
