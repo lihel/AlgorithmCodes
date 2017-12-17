@@ -5,7 +5,6 @@ package mypackage;
  */
 
 import java.io.*;
-import java.util.*;
 
 class remove {
     public int removeElement(int[] nums, int val) {
