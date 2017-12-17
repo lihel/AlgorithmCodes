@@ -9,28 +9,17 @@ import java.util.*;
 
 class remove {
     public int removeElement(int[] nums, int val) {
-        int temp, j = nums.length - 1;
-        for (int i = 0; i < nums.length; ) {
+        int i = 0;
+        int j = nums.length;
+        while (i < j) {
             if (nums[i] == val) {
-                if (nums[j] != val) {
-                    temp = nums[i];
-                    nums[i] = nums[j];
-                    nums[j] = temp;
-                    j--;
-                    i++;
-                } else {
-                    j--;
-                }
-            }
-            else i++;
-
-            if (i == j) {
-                System.out.println(i);
-                nums = Arrays.copyOfRange(nums, 0, i);
-                
+                nums[i] = nums[j-1];
+                j--;
+            } else {
+                i++;
             }
         }
-        return nums.length;
+        return j;
     }
 }
 
