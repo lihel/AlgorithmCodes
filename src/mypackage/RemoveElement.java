@@ -2,6 +2,9 @@ package mypackage;
 
 /**
  * Created by lmy on 17-12-15.
+ * 给定一个数组和一个值，就地删除该值的所有实例并返回新的长度。
+ * 不要为其他数组分配额外的空间，您必须通过在O（1）额外的内存中就地修改输入数组来实现这一点。
+ * 元素的顺序可以改变。
  */
 
 import java.io.*;
@@ -12,7 +15,7 @@ class remove {
         int j = nums.length;
         while (i < j) {
             if (nums[i] == val) {
-                nums[i] = nums[j-1];
+                nums[i] = nums[j - 1];
                 j--;
             } else {
                 i++;
